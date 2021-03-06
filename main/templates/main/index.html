@@ -1,0 +1,169 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}BGMT | Home{% endblock %}
+
+{% block content %}
+
+    <div class="main-content-block">
+    <div class="main-bg-block">
+        <div class="recent-news-block">
+        <div class="recent-news-line-box-left">
+            <svg viewBox="0 0 100 50">
+                <path d="M0 0 L0 50 L100 0" style="stroke: #9c191b; stroke-width: 2px; fill: #fff;"></path>
+            </svg>
+        </div>
+        <div class="recent-news-line-box-right">
+            <svg viewBox="0 0 100 50">
+                <path d="M0 0 L100 50 L100 0" style="stroke: #9c191b; stroke-width: 2px; fill: #fff;"></path>
+            </svg>
+        </div>
+            <h2 class="block-header">RECENT</h2>
+            <div class="recent-news-grid-block">
+                {% for news in news %}
+                    <div class="recent-news-card">
+                        <div class="recent-news-card-image-box">
+                            <a href="post/{{ news.category }}/{{ news.id }}"><img src="{{ news.image.url|safe }}" alt=""></a>
+                        </div>
+                        <div class="recent-news-card-border-box">
+                            <p>{{ news.title|safe }}</p>
+                            <a href="post/{{ news.category }}/{{ news.id }}" class="btn news-card-block-btn hover-white-btn">Continue</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="bottom-bg-image-block">
+            <img src="{% static 'main/img/bot-bg-element.png' %}" alt="">
+        </div>
+        </div>
+
+        <div class="regular-news-block">
+        <div class="top-bg-image-block">
+            <img src="{% static 'main/img/top-bg-element.png' %}" alt="">
+        </div>
+            <a href="{% url 'social' %}" class="block-header hover-btn">SOCIAL</a>
+            <div class="regular-news-grid-block">
+                {% for category_social in category_social %}
+                    <div class="regular-news-card">
+                        <div class="regular-news-card-image-block">
+                            <a href="post/{{ category_social.category }}/{{ category_social.id }}"><img src="" alt=""><img src="{{ category_social.image.url|safe }}" alt=""></a>
+                        </div>
+                        <div class="regular-news-card-border-block">
+                        <div class="regular-news-card-text-block">
+                            <h3 class="regular-news-header">{{ category_social.title|safe }}</h3>
+                            <p>{{ category_social.description|safe }}</p>
+                            <a href="post/{{ category_social.category }}/{{ category_social.id }}" class="btn regular-news-card-block-btn hover-white-btn">Continue</a>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="bottom-bg-image-block">
+            <img src="{% static 'main/img/bot-bg-element.png' %}" alt="">
+        </div>
+        </div>
+
+        <div class="regular-news-block">
+        <div class="top-bg-image-block">
+            <img src="{% static 'main/img/top-bg-element.png' %}" alt="">
+        </div>
+            <a href="{% url 'guides' %}" class="block-header hover-btn">GUIDES</a>
+            <div class="regular-news-grid-block">
+                {% for category_guides in category_guides %}
+                    <div class="regular-news-card">
+                        <div class="regular-news-card-image-block">
+                            <a href="post/{{ category_guides.category }}/{{ category_guides.id }}"><img src="" alt=""><img src="{{ category_guides.image.url|safe }}" alt=""></a>
+                        </div>
+                        <div class="regular-news-card-border-block">
+                        <div class="regular-news-card-text-block">
+                            <h3 class="regular-news-header">{{ category_guides.title|safe }}</h3>
+                            <p>{{ category_guides.description|safe }}</p>
+                            <a href="post/{{ category_guides.category }}/{{ category_guides.id }}" class="btn regular-news-card-block-btn hover-white-btn">Continue</a>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="bottom-bg-image-block">
+            <img src="{% static 'main/img/bot-bg-element.png' %}" alt="">
+        </div>
+        </div>
+
+        <div class="regular-news-block">
+        <div class="top-bg-image-block">
+            <img src="{% static 'main/img/top-bg-element.png' %}" alt="">
+        </div>
+            <a href="{% url 'culture' %}" class="block-header hover-btn">CULTURE</a>
+            <div class="regular-news-grid-block">
+                {% for category_culture in category_culture %}
+                    <div class="regular-news-card">
+                        <div class="regular-news-card-image-block">
+                            <a href="post/{{ category_culture.category }}/{{ category_culture.id }}"><img src="" alt=""><img src="{{ category_culture.image.url|safe }}" alt=""></a>
+                        </div>
+                        <div class="regular-news-card-border-block">
+                        <div class="regular-news-card-text-block">
+                            <h3 class="regular-news-header">{{ category_culture.title|safe }}</h3>
+                            <p>{{ category_culture.description|safe }}</p>
+                            <a href="post/{{ category_culture.category }}/{{ category_culture.id }}" class="btn regular-news-card-block-btn hover-white-btn">Continue</a>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="bottom-bg-image-block">
+            <img src="{% static 'main/img/bot-bg-element.png' %}" alt="">
+        </div>
+        </div>
+
+        <div class="regular-news-block">
+        <div class="top-bg-image-block">
+            <img src="{% static 'main/img/top-bg-element.png' %}" alt="">
+        </div>
+            <a href="{% url 'lifestyle' %}" class="block-header hover-btn">LIFESTYLE</a>
+            <div class="regular-news-grid-block">
+                {% for category_lifestyle in category_lifestyle %}
+                    <div class="regular-news-card">
+                        <div class="regular-news-card-image-block">
+                            <a href="post/{{ category_lifestyle.category }}/{{ category_lifestyle.id }}"><img src="{{ category_lifestyle.image.url|safe }}" alt=""></a>
+                        </div>
+                        <div class="regular-news-card-border-block">
+                        <div class="regular-news-card-text-block">
+                            <h3 class="regular-news-header">{{ category_lifestyle.title|safe }}</h3>
+                            <p>{{ category_lifestyle.description|safe }}</p>
+                            <a href="post/{{ category_lifestyle.category }}/{{ category_lifestyle.id }}" class="btn regular-news-card-block-btn hover-white-btn">Continue</a>
+                        </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="bottom-bg-image-block">
+            <img src="{% static 'main/img/bot-bg-element.png' %}" alt="">
+        </div>
+        </div>
+
+        <div class="regular-news-block">
+        <div class="top-bg-image-block">
+            <img src="{% static 'main/img/top-bg-element.png' %}" alt="">
+        </div>
+            <a href="{% url 'sex-and-love' %}" class="block-header hover-btn">SEX & LOVE</a>
+            <div class="regular-news-grid-block">
+                {% for category_sex_and_love in category_sex_and_love %}
+                    <div class="regular-news-card">
+                        <div class="regular-news-card-image-block">
+                            <a href="post/{{ category_sex_and_love.category }}/{{ category_sex_and_love.id }}"><img src="{{ category_sex_and_love.image.url|safe }}" alt=""></a>
+                        </div>
+                        <div class="regular-news-card-border-block">
+                            <div class="regular-news-card-text-block">
+                                <h3 class="regular-news-header">{{ category_sex_and_love.title|safe }}</h3>
+                                <p>{{ category_sex_and_love.description|safe }}</p>
+                            </div>
+                            <a href="post/{{ category_sex_and_love.category }}/{{ category_sex_and_love.id }}" class="btn regular-news-card-block-btn hover-white-btn">Continue</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

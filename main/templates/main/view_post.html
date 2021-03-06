@@ -1,0 +1,114 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}BGMT | {{ news.title|safe }}{% endblock %}
+
+{% block content %}
+    {{ page_title }}
+    <div class="main-content-block detail-view-bg-block">
+        <div class="main-bg-block">
+
+            <div class="detail-view-news-block">
+                <div class="recent-news-line-box-left">
+                    <svg viewBox="0 0 100 50">
+                        <path d="M0 0 L0 50 L100 0" style="stroke: #9c191b; stroke-width: 2px; fill: #fff;"></path>
+                    </svg>
+                </div>
+                <div class="recent-news-line-box-right">
+                    <svg viewBox="0 0 100 50">
+                        <path d="M0 0 L100 50 L100 0" style="stroke: #9c191b; stroke-width: 2px; fill: #fff;"></path>
+                    </svg>
+                </div>
+                <div class="detail-view-header-section">
+                    <h2 class="detail-view-block-header">{{ news.title|safe }}</h2>
+                </div>
+                <div class="detail-view-block-top-section">
+                    <div class="detail-view-block-author-section">
+                        {% if news.author_avatar %}
+                            <img src="{{ news.author_avatar.url|safe }}" alt="">
+                            {% else %}
+                                <img src="{% static 'main/img/logo-minimal.png' %}" alt="">
+                        {% endif %}
+                        <p class="detail-view-block-author">{{ news.author|safe }},<br>{{ news.date|date:"d/m/Y."|safe }}</p>
+                    </div>
+                    <div class="detail-view-block-top-section-image">
+                        <img src="{{ news.image.url|safe }}" alt="">
+                    </div>
+                </div>
+                <div class="detail-view-block-content-section">
+                    <div class="detail-view-block-content-text">{{ news.full_text|safe }}</div>
+                </div>
+
+            <div class="shared-news-block">
+                <p>SHARE THIS</p>
+                <div class="share-news-button-block">
+                    <a href="" target="_blank" class="share-news-button"><i class="fab fa-facebook"></i></a>
+                    <a href="" target="_blank" class="share-news-button"><i class="fab fa-twitter"></i></a>
+                    <a href="" target="_blank" class="share-news-button"><i class="fab fa-linkedin"></i></a>
+                    <a href="" target="_blank" class="share-news-button"><i class="fab fa-reddit"></i></a>
+                    <a href="" target="_blank" class="share-news-button"><i class="fab fa-telegram"></i></a>
+                    <a href="" target="_blank" class="share-news-button"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="comment-block-upper-header">
+                <p>One comment on "{{ news.title }}"</p>
+            </div>
+            <div class="comment-block">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                    {% if comments %}
+                        {% for comment in comments %}
+                        <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                            <div class="comment-card">
+                                <p class="comment-author">{{ comment.name }}</p>
+                                <p class="comment-date">{{ comment.created }}</p>
+                                <p class="comment-body">{{ comment.body }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="carousel-item active">
+                            <div class="comment-card">
+                                <p class="none-comment-text">No comments yet.<br>Be the first!</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+                <div class="comment-text">
+                    <p class="comment-text-header">LEAVE A REPLY</p>
+                    <p class="comment-text-hint">Your email address will not be published.<br>Required fields are marked *</p>
+                </div>
+            </div>
+
+            <div class="comment-form-block">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="comment-form-grid-block">
+                        <div class="comment-form-left-block">
+                            {{ comment_form.name }}
+                            {{ comment_form.email }}
+                            {{ comment_form.website }}
+                        </div>
+                        <div class="comment-form-right-block">
+                            {{ comment_form.body }}
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn comment-form-button hover-white-btn">POST COMMENT</button>
+                    </div>
+                </form>
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+{% load bootstrap3 %}
+{% block title %}BGMT | Search result{% endblock %}
+{% block content %}
+    <h1>Поиск</h1>
+    {% if news_lists %}
+        {% for news in news_lists %}
+            <article>
+                <a href="{{ news.get_absolute_url }}">
+                    <h2>{{ news.news_title }}</h2>
+                </a>
+                {{ article.desctription|safe }}
+                <p><a class="btn btn-default btn-sm" href="{{ article.get_absolute_url }}">Читать далее</a></p>
+            </article>
+        {% endfor %}
+        {% bootstrap_pagination article_lists url=last_question %}
+    {% else %}
+        <p>Не найдено публикаций по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}BGMT | LIFESTYLE {% endblock %}
+
+{% block content %}
+
+    <div class="main-content-block">
+        <div class="main-bg-block">
+            <div class="category-news-block">
+                <div class="recent-news-line-box-left">
+                    <svg viewBox="0 0 100 50">
+                        <path d="M0 0 L0 50 L100 0" style="stroke: #9c191b; stroke-width: 2px; fill: #fff;"></path>
+                    </svg>
+                </div>
+                <div class="recent-news-line-box-right">
+                    <svg viewBox="0 0 100 50">
+                        <path d="M0 0 L100 50 L100 0" style="stroke: #9c191b; stroke-width: 2px; fill: #fff;"></path>
+                    </svg>
+                </div>
+                <h2 class="block-header">LIFESTYLE</h2>
+                <div class="category-news-grid-box">
+                    {% for category in category_lifestyle %}
+                        <div class="category-news-card">
+                            <div class="category-news-card-image-block">
+                                <a href="post/{{ category.category }}/{{ category.id }}"><img src="{{ category.image.url|safe }}" alt=""></a>
+                            </div>
+                            <div class="category-news-card-border-block">
+                                <h3 class="category-news-card-header">{{ category.title|safe }}</h3>
+                                <a class="category-news-card-block-btn hover-white-btn" href="post/{{ category.category }}/{{ category.id }}">Continue</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

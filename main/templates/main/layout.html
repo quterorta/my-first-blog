@@ -1,0 +1,172 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'main/img/logo-minimal.png' %}" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/mobile.css' %}">
+    <script src="{% static 'main/js/main.js' %}"></script>
+</head>
+<body>
+
+    <header class="pc-header sticky-top">
+
+        <div class="logo-pc-header-block">
+            <a href="{% url 'home' %}"><img src="{% static 'main/img/logo.png' %}" alt=""></a>
+        </div>
+
+        <div class="link-pc-header-block">
+            <a class="hover-btn" href="{% url 'social' %}">SOCIAL</a>
+            <a class="hover-btn" href="{% url 'guides' %}">GUIDES</a>
+            <a class="hover-btn" href="{% url 'culture' %}">CULTURE</a>
+            <a class="hover-btn" href="{% url 'lifestyle' %}">LIFESTYLE</a>
+            <a class="hover-btn" href="{% url 'sex-and-love' %}">SEX & LOVE</a>
+        </div>
+
+        <div class="social-button-pc-header-block">
+            <p>FOLLOW US</p>
+            {#     instagram-link       #}
+            <a class="social-btn-header" href="" target="_blank"><i class="fab fa-instagram"></i></a>
+            {#     facebook-link       #}
+            <a class="social-btn-header" href="" target="_blank"><i class="fab fa-facebook"></i></a>
+            {#     linkedin-link       #}
+            <a class="social-btn-header" href="" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <br>
+            <a class="contact-btn-header hover-btn" href="mailto:info@bgmt.nl">info@bgmt.nl</a>
+        </div>
+
+    </header>
+
+    <header class="mobile-header sticky-top">
+
+        <div class="logo-mobile-header-block">
+            <a href="{% url 'home' %}"><img src="{% static 'main/img/logo.png' %}" alt=""></a>
+        </div>
+
+        <div class="social-button-mobile-header-block">
+            <p>FOLLOW US</p>
+            {#     instagram-link       #}
+            <a href="" target="_blank" class="icon-link-mobile-header"><i class="fab fa-instagram"></i></a>
+            {#     facebook-link       #}
+            <a href="" target="_blank" class="icon-link-mobile-header"><i class="fab fa-facebook"></i></a>
+            {#     linkedin-link       #}
+            <a href="" target="_blank" class="icon-link-mobile-header"><i class="fab fa-linkedin"></i></a>
+            <br>
+            <a href="mailto:info@bgmt.nl" class="mail-link-mobile-header">info@bgmt.nl</a>
+        </div>
+
+        <div class="link-mobile-header-block">
+            <div class="btn-group dropdown">
+                <button class="btn" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-bars"></i></button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="{% url 'social' %}">SOCIAL</a></li>
+                    <li><a class="dropdown-item" href="{% url 'guides' %}">GUIDES</a></li>
+                    <li><a class="dropdown-item" href="{% url 'culture' %}">CULTURE</a></li>
+                    <li><a class="dropdown-item" href="{% url 'lifestyle' %}">LIFESTYLE</a></li>
+                    <li><a class="dropdown-item" href="{% url 'sex-and-love' %}">SEX & LOVE</a></li>
+                    <li>
+                        <form action="{% url 'search' %}" class="menu-search-form" method="get">
+                            <div class="input-group">
+                                <button id="hider" type="submit" class="btn menu-search-form-button"><i class="fas fa-search"></i></button>
+                                <input id="search" name="q" type="text" class="form-control menu-search-form-input" placeholder="Search" required>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="soundcloud-block">
+        <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/206823343&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yevhenia-kushnir" title="Yevhenia Kushnir" target="_blank" style="color: #cccccc; text-decoration: none;">Yevhenia Kushnir</a> · <a href="https://soundcloud.com/yevhenia-kushnir/ygychnx5juv7" title="Скрябін - Люди як кораблі" target="_blank" style="color: #cccccc; text-decoration: none;">Скрябін - Люди як кораблі</a></div>
+    </div>
+
+    <div class="soundcloud-block-mobile">
+        <iframe width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/206823343&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/yevhenia-kushnir" title="Yevhenia Kushnir" target="_blank" style="color: #cccccc; text-decoration: none;">Yevhenia Kushnir</a> · <a href="https://soundcloud.com/yevhenia-kushnir/ygychnx5juv7" title="Скрябін - Люди як кораблі" target="_blank" style="color: #cccccc; text-decoration: none;">Скрябін - Люди як кораблі</a></div>
+    </div>
+
+    <div class="search-form-block">
+        <form action="{% url 'search' %}" class="search-form" method="get">
+            <div class="">
+                <button id="hider" type="submit" class="btn search-form-button"></button>
+                <input id="search" name="q" type="text" class="form-control search-form-input" placeholder=" Search" required>
+            </div>
+        </form>
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <div class="scrollup">
+      <!-- Иконка fa-chevron-up (Font Awesome) -->
+      <i class="fa fa-chevron-up"></i>
+    </div>
+
+    <div class="partners-block-container">
+
+        <div class="partners-column">
+            <div class="partners-block partners-block-1">
+                <hr class="text-partners-border-top">
+                <p>PARTNERS<br>&<br>COLLABORATIONS</p>
+                <hr class="text-partners-border-bot">
+            </div>
+            <div class="partners-image-block">
+                <a target="_blank" href="https://www.instagram.com/wilde_theatre"><img src="{% static 'main/img/wildtheatre-logo.png' %}" alt=""></a>
+            </div>
+            <div class="partners-image-block">
+                <a target="_blank" href="https://www.facebook.com/stayrotterdam/"><img src="{% static 'main/img/stayrotterdam-logo.png' %}" alt=""></a>
+            </div>
+        </div>
+
+        <div class="partners-empty-column"></div>
+
+        <div class="partners-column">
+            <div class="partners-block partners-block-2">
+                <hr class="text-partners-border-top">
+                <p>PARTNERS<br>&<br>COLLABORATIONS</p>
+                <hr class="text-partners-border-bot">
+            </div>
+            <div class="partners-image-block">
+                <a target="_blank" href="https://www.iwng.nl/"><img src="{% static 'main/img/iwng-logo.png' %}" alt=""></a>
+            </div>
+            <div class="partners-image-block">
+                <a target="_blank" href="https://reshirtrotterdam.wixsite.com/website"><img src="{% static 'main/img/reshirt-logo.png' %}" alt=""></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer-position-block">
+    <footer class="footer">
+        <a href="{% url 'home' %}"><img src="{% static 'main/img/logo-minimal.png' %}" alt=""></a>
+        <br>
+        <p>BGMT is the platform for everything international in the Netherlands.<br>We create content you actually care about. Made by expats, for expats.</p>
+        <a class="footer-link hover-yellow-btn" href="{% url 'about' %}">ABOUT</a>
+        <br>
+        <p class="copyright-footer-text"><i class="far fa-copyright"></i> BGMT, Web Site powered by: <a href="https://moldstarter.md" target="_blank" class="footer-copyright-link"><b>mold</b>starter</a></p>
+    </footer>
+        <div class="footer-line-box-left">
+            <svg viewBox="0 0 100 100">
+                <path d="M0 0 L0 100 L100 100" style="stroke: none; fill: #9c191b;"></path>
+            </svg>
+        </div>
+        <div class="footer-line-box-right">
+            <svg viewBox="0 0 100 100">
+                <path d="M0 100 L100 100 L100 0" style="stroke:none; fill: #9c191b;"></path>
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>

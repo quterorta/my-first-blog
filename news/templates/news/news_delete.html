@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Удаление статьи{% endblock %}
+
+{% block content %}
+
+    <div class="features">
+
+        <h1>Удаление статьи:</h1>
+        <h2>{{ articles.title }}</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-warning" type="submit">Удалить статью</button>
+        </form>
+
+    </div>
+
+{% endblock %}
