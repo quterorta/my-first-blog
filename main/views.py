@@ -2,17 +2,9 @@ import http
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import viewsets, renderers, permissions
-from rest_framework.generics import ListAPIView
-from rest_framework.viewsets import ModelViewSet
 from .models import *
 from  django.views.generic import DetailView, ListView
 from .forms import CommentForm
-from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework.response import Response
-from .serializers import NewsSerializer
-from rest_framework.decorators import action
 
 
 def index(request):
@@ -85,15 +77,6 @@ class PostDetailView(DetailView):
         context['comment_form'] = CommentForm
 
         return context
-
-
-class NewsViewSet(ModelViewSet):
-    queryset = News.objects.all()
-    serializer_class = NewsSerializer
-    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filter_fields = ['id']
-    search_fields = ['title', 'description', 'keywords', 'full_text']
-    ordering_fields = ['date']
 
 
 class Search(ListView):
