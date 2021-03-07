@@ -16,11 +16,7 @@ Including another URLconf
 
 from django.urls import path, include
 from . import views
-from rest_framework.routers import SimpleRouter
-from .views import NewsViewSet
 
-#router = SimpleRouter()
-#router.register(r'search', NewsViewSet)
 
 urlpatterns = [
     path('', views.index, name='home'),
@@ -36,6 +32,3 @@ urlpatterns = [
     path('privacy-policy', views.privacy_policy, name='privacy-policy'),
     path('terms-of-use', views.terms_of_use, name='terms-of-use'),
 ]
-
-# urlpatterns += router.urls
-

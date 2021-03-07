@@ -25,20 +25,15 @@ SECRET_KEY = '=(x6&o1-)^o@t4&*$3dksuk=fru6rhc(7dhf9hqpp9kbo$0j^^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    # 'search.apps.SearchConfig',
-    # 'django.contrib.postgres',
-    # 'bootstrap3',
-    'rest_framework',
     'ckeditor',
     'ckeditor_uploader',
     'main',
-    # 'news',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
